@@ -12,7 +12,7 @@ const Main = () => {
             <div>
                 <Outlet></Outlet>
             </div>
-            <div>
+            <div className='container mx-auto px-[80px]'>
                 <Foot></Foot>
             </div>
         </div>

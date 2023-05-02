@@ -12,16 +12,14 @@ const OurStory = () => {
                     <p>
                         Food is such an important part of our lives; it brings friends and family together and creates memories and traditions. Although as generations go on and schedules get busier meals become more of a quick easy fix and we start to forget where the food on our plates really comes from. The food we eat is a gift from our earth, created by its elements and nurtured by our farmers. <br /> <br />
 
-                        The meat we eat is a sacrifice of life that deserves our respect and acknowledgment. <br /> <br />
+                        The meat we eat is a sacrifice of life that deserves our respect and acknowledgment. The values most important to us, and what we want to teach and inspire others, is the impact and importance that seasons have on our food, knowing the origin of our food and the process to which it comes to our plate. <br /> <br />
 
-                        The values most important to us, and what we want to teach and inspire others, is the impact and importance that seasons have on our food, knowing the origin of our food and the process to which it comes to our plate. <br /> <br />
+                        We are traveling Indian fishing, foraging and hunting where possible, and where not possible, we will be out meeting our small-town farmers to be inspired by their passion, ideologies and fresh produce. As we travel and explore Australia, we will be lighting up our Campfire along the way and showing you how all the meals that we love and enjoy at home can be easily replicated in our backyard. <br /> <br />
 
-                        We are traveling Indian fishing, foraging and hunting where possible, and where not possible, we will be out meeting our small-town farmers to be inspired by their passion, ideologies and fresh produce. <br /> <br />
-
-                        As we travel and explore Australia, we will be lighting up our Campfire along the way and showing you how all the meals that we love and enjoy at home can be easily replicated in our backyard. <br /> <br />
-
-                        We are Roxie & Mark, and we look forward to sharing our adventure with you.
+                        We are food lover, and we look forward to sharing our adventure with you.
                     </p>
+
+                    <button className='bg-[#f59e0b] px-5 py-3 rounded-full font-bold mt-6 text-white'>Book Now</button>
                 </div>
                 <div className='w-[45%]'>
                     <img src={storyImage} alt="" className='rounded-xl'/>

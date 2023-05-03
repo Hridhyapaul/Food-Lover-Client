@@ -1,14 +1,34 @@
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
+    const {setUser, loginUser} = useContext(AuthContext)
+    const handleLoginSubmit = (event) => {
+        event.preventDefault()
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email,password)
+
+        loginUser(email, password)
+        .then(result => {
+            const signedUser = result.user;
+            setUser(signedUser)
+            console.log(signedUser);
+            form.reset();
+        })
+        .catch(error => {
+            console.log(error.message)
+        })
+    }
     return (
         <div className='Container mx-auto px-[80px]'>
             <div className='w-[40%] mx-auto border-2 p-5 my-10 rounded-lg'>
-                <form className="flex flex-col gap-4">
+                <form className="flex flex-col gap-4" onSubmit={handleLoginSubmit}>
                     <div>
                         <div className="mb-2 block">
                             <Label
@@ -19,6 +39,7 @@ const Login = () => {
                         <TextInput
                             id="email1"
                             type="email"
+                            name='email'
                             placeholder="name@gmail.com"
                             required={true}
                         />
@@ -33,6 +54,7 @@ const Login = () => {
                         <TextInput
                             id="password1"
                             type="password"
+                            name='password'
                             required={true}
                         />
                     </div>

@@ -1,9 +1,8 @@
 import React from 'react';
 import Navbar from '../Shared/Navbar';
-import Login from '../Pages/Login/Login';
 import { Outlet } from 'react-router-dom';
 
-const LoginLayout = () => {
+const RegisterLayout = () => {
     return (
         <div>
             <div className='bg-slate-600 py-5 px-[80px] bg-opacity-50'>
@@ -16,4 +15,4 @@ const LoginLayout = () => {
     );
 };
 
-export default LoginLayout;
+export default RegisterLayout;

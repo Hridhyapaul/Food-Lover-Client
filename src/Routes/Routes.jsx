@@ -7,6 +7,7 @@ import Login from "../Pages/Login/Login";
 import LoginLayout from "../Layouts/LoginLayout";
 import Register from "../Pages/Register/Register";
 import RegisterLayout from "../Layouts/RegisterLayout";
+import PrivateRoute from "../Pages/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: ":id",
-        element: <AllRecipes></AllRecipes>,
+        element: <PrivateRoute><AllRecipes></AllRecipes></PrivateRoute>,
         loader: ({ params }) => fetch(`https://food-lover-xi.vercel.app/chefs/${params.id}`)
       }
     ]

@@ -5,11 +5,17 @@ import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../Provider/AuthProvider';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
     const { setUser, loginUser } = useContext(AuthContext)
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log('login page', location)
+    const from = location.state?.from?.pathname || '/'
+
     const handleLoginSubmit = (event) => {
         event.preventDefault()
         const form = event.target;
@@ -25,6 +31,7 @@ const Login = () => {
                 form.reset();
                 setError('')
                 setSuccess('You have successfully logged in')
+                navigate(from, {replace: true})
             })
             .catch(error => {
                 console.log(error.message)

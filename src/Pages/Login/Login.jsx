@@ -1,29 +1,36 @@
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { FaCheckCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
-    const {setUser, loginUser} = useContext(AuthContext)
+    const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
+    const { setUser, loginUser } = useContext(AuthContext)
     const handleLoginSubmit = (event) => {
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email,password)
+        console.log(email, password)
 
         loginUser(email, password)
-        .then(result => {
-            const signedUser = result.user;
-            setUser(signedUser)
-            console.log(signedUser);
-            form.reset();
-        })
-        .catch(error => {
-            console.log(error.message)
-        })
+            .then(result => {
+                const signedUser = result.user;
+                setUser(signedUser)
+                console.log(signedUser);
+                form.reset();
+                setError('')
+                setSuccess('You have successfully logged in')
+            })
+            .catch(error => {
+                console.log(error.message)
+                setError(error.message)
+                setSuccess('')
+            })
     }
     return (
         <div className='Container mx-auto px-[80px]'>
@@ -68,6 +75,14 @@ const Login = () => {
                         <p className='text-lg'>Submit</p>
                     </Button>
                 </form>
+                {
+                    error && <p className='text-[#f87171] mt-3'>{error}</p>
+                }
+                {
+                    success && <div className='mt-3 flex justify-center'>
+                        <p className='text-[#34d399] font-semibold flex justify-start items-center gap-2'><FaCheckCircle className='text-[#34d399]'></FaCheckCircle> <span>{success}</span> </p>
+                    </div>
+                }
                 <p className='text-center mt-3'>New user? <Link className='text-decoration-none text-[#64748b]' to="/register">Create an Account</Link></p>
 
                 <p className='text-center mt-5'>Or</p>

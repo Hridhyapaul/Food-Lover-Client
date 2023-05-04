@@ -11,7 +11,7 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [passwordSuccess, setPasswordSuccess] = useState('')
-    const { createUser, user } = useContext(AuthContext)
+    const { createUser } = useContext(AuthContext)
     const handleSubmit = (event) => {
         event.preventDefault()
         const form = event.target;
@@ -43,8 +43,8 @@ const Register = () => {
         const isContainsSymbol = /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/;
         const isContainsUppercase = /^(?=.*[A-Z]).*$/;
 
-        if (passwordInput.length > 5) {
-            setPasswordError("Password must be less than 6 characters");
+        if (passwordInput.length < 6) {
+            setPasswordError("Password must be 6 characters long");
             setPasswordSuccess('');
             return;
         }

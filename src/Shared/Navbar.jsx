@@ -6,9 +6,9 @@ import { Avatar, Button, Tooltip } from 'flowbite-react';
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext)
-    const navLinkStyles =({isActive}) => {
+    const navLinkStyles = ({ isActive }) => {
         return {
-            color:isActive ? 'yellow' : 'white',
+            color: isActive ? 'yellow' : 'white',
         }
     }
     const handleLogout = () => {
@@ -26,10 +26,9 @@ const Navbar = () => {
             </div>
             <div className='text-white w-[50%] text-lg text-center'>
                 <NavLink style={navLinkStyles} to="/" className='mx-4 text-center' active>Home</NavLink>
-                <NavLink style={navLinkStyles} to="/about" className='mx-4 text-center'>About Us</NavLink>
-                <NavLink style={navLinkStyles} to="/menu" className='mx-4 text-center'>Menu</NavLink>
+
                 <NavLink style={navLinkStyles} to="/blog" className='mx-4 text-center'>Blog</NavLink>
-                <NavLink style={navLinkStyles} to="/contact" className='mx-4 text-center'>Contact Us</NavLink>
+
             </div>
             <div className='text-white w-[25%] text-right'>
                 {

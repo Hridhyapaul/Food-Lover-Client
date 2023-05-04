@@ -10,10 +10,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
-    const { setUser, loginUser } = useContext(AuthContext)
+    const { setUser, loginUser , googleSignIn, googleProvider, githubSignIn, githubProvider} = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
     console.log('login page', location)
+
     const from = location.state?.from?.pathname || '/'
 
     const handleLoginSubmit = (event) => {
@@ -26,7 +27,6 @@ const Login = () => {
         loginUser(email, password)
             .then(result => {
                 const signedUser = result.user;
-                setUser(signedUser)
                 console.log(signedUser);
                 form.reset();
                 setError('')
@@ -38,6 +38,27 @@ const Login = () => {
                 setError(error.message)
                 setSuccess('')
             })
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn(googleProvider)
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+        })
+        .catch(error => {
+            console.log(error.message)
+        })
+    }
+    const handleGitHubSignIn = () => {
+        githubSignIn(githubProvider)
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+        })
+        .catch(error => {
+            console.log(error.message)
+        })
     }
     return (
         <div className='Container mx-auto px-[80px]'>
@@ -95,10 +116,10 @@ const Login = () => {
                 <p className='text-center mt-5'>Or</p>
 
                 <div className='space-y-3 mt-5'>
-                    <Button type="submit" className='bg-white hover:bg-white text-black border-1 border-black w-full'>
+                    <Button type="submit" className=' text-black border-1 border-black w-full' onClick={handleGoogleSignIn}>
                         <p className='flex justify-start items-center gap-3'><FcGoogle className='text-[25px]'></FcGoogle> <span className='text-lg'>Continue with Google</span></p>
                     </Button>
-                    <Button type="submit" className='bg-white hover:bg-white text-black border-1 border-black w-full'>
+                    <Button type="submit" className=' text-black border-1 border-black w-full' onClick={handleGitHubSignIn}>
                         <p className='flex justify-start items-center gap-3'><FaGithub className='text-[25px]'></FaGithub> <span className='text-lg'>Continue with GitHub</span></p>
                     </Button>
                 </div>

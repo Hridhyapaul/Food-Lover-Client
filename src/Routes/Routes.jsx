@@ -8,6 +8,8 @@ import LoginLayout from "../Layouts/LoginLayout";
 import Register from "../Pages/Register/Register";
 import RegisterLayout from "../Layouts/RegisterLayout";
 import PrivateRoute from "../Pages/PrivateRoute/PrivateRoute";
+import BlogLayout from "../Layouts/BlogLayout";
+import Blog from "../Pages/Blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +50,16 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      }
+    ]
+  },
+  {
+    path: '/blog',
+    element: <BlogLayout></BlogLayout>,
+    children: [
+      {
+        path: '/blog',
+        element: <Blog></Blog>
       }
     ]
   }

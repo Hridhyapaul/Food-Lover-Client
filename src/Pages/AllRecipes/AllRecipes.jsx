@@ -1,6 +1,6 @@
 import { Card } from 'flowbite-react';
 import React, { useState } from 'react';
-import { FaHeart } from "react-icons/fa";
+import { FaHeart  } from "react-icons/fa";
 import { useLoaderData } from 'react-router-dom';
 import RecipeCard from './RecipeCard';
 

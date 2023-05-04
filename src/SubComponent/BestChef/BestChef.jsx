@@ -11,6 +11,9 @@ const BestChef = () => {
             .then(data => setChefs(data))
             setLoading(false)
     }, [])
+
+    // Apply loading....
+
     if (loading) {
         return <div className='flex justify-center items-center'>
             <Button className=''>
@@ -23,8 +26,14 @@ const BestChef = () => {
     }
     return (
         <div className='container mx-auto px-[80px] mt-16 mb-16'>
+
+            {/* Best Chef section title */}
+
             <h3 className='text-[#f59e0b] text-2xl font-bold text-center'>Chef Team</h3>
             <h1 className='text-5xl font-bold text-center'>Best Chefs for You</h1>
+
+            {/* Apply chef card for home page */}
+            
             <div className='grid grid-cols-3 gap-5 mt-8'>
                 {
                     chefs.map(chef => <Chef key={chef.id} chef={chef} loading={loading}></Chef>)

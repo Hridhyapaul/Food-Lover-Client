@@ -20,16 +20,27 @@ const Navbar = () => {
     }
     return (
         <nav className='flex justify-between items-center container mx-auto'>
+
+            {/* logo and Website name */}
+
             <div className='text-4xl text-white w-[25%] flex justify-start gap-3'>
-                <img src={logo} className='h-[40px]' />
-                <p>Food Lover</p>
+                <Link to="/" className='flex justify-start gap-3'>
+                    <img src={logo} className='h-[40px]' />
+                    <p>Food Lover</p>
+                </Link>
             </div>
+
+            {/* NavLink */}
+            
             <div className='text-white w-[50%] text-lg text-center'>
                 <NavLink style={navLinkStyles} to="/" className='mx-4 text-center' active>Home</NavLink>
 
                 <NavLink style={navLinkStyles} to="/blog" className='mx-4 text-center'>Blog</NavLink>
 
             </div>
+
+            {/* Add login and Register button conditionally */}
+
             <div className='text-white w-[25%] text-right'>
                 {
                     user ?

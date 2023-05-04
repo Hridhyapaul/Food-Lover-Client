@@ -5,10 +5,16 @@ const OurStory = () => {
     return (
         <div className='px-[80px] container mx-auto mt-16'>
             <div className='flex justify-between items-start w-full'>
+
+                {/* Our Story section title */}
+
                 <div className='w-[45%]'>
                     <h3 className='text-[#f59e0b] text-2xl font-bold'>Our Story</h3>
                     <h1 className='text-5xl font-bold'>Who We Are</h1>
                     <hr className='border-[#f59e0b] border-[1.5px] mt-5 mb-5'/>
+
+                    {/* Our story section details */}
+
                     <p>
                         Food is such an important part of our lives; it brings friends and family together and creates memories and traditions. Although as generations go on and schedules get busier meals become more of a quick easy fix and we start to forget where the food on our plates really comes from. The food we eat is a gift from our earth, created by its elements and nurtured by our farmers. <br /> <br />
 
@@ -21,11 +27,13 @@ const OurStory = () => {
 
                     <button className='bg-[#f59e0b] px-5 py-3 rounded-full font-bold mt-6 text-white'>Book Now</button>
                 </div>
+
+                {/* Our story section image */}
+
                 <div className='w-[45%]'>
                     <img src={storyImage} alt="" className='rounded-xl'/>
                 </div>
             </div>
-
         </div>
     );
 };

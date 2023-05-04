@@ -12,6 +12,8 @@ const DeliciousFood = () => {
             setLoading(false)
     }, [])
 
+    // Apply Loading....
+
     if (loading) {
         return <div className='flex justify-center items-center'>
             <Button className=''>
@@ -25,8 +27,14 @@ const DeliciousFood = () => {
 
     return (
         <div>
+
+            {/* Apply delicious food section title */}
+
             <h3 className='text-[#f59e0b] text-2xl font-bold text-center'>Food for You</h3>
             <h1 className='text-5xl font-bold text-center'>Delicious Food</h1>
+
+            {/* Data mapping for delicious food section */}
+
             <div className='grid grid-cols-4 gap-4 container mx-auto px-[80px] mb-16 mt-10'>
                 {
                     foods.map(food => <FoodCard key={food.id} food={food} loading={loading}></FoodCard>)

@@ -4,6 +4,9 @@ import React from 'react';
 const FoodCard = ({ food, loading }) => {
     const { name, image } = food
     console.log(food)
+
+    // Apply loading.....
+    
     if (loading) {
         return <div className='flex justify-center items-center'>
             <Button className=''>

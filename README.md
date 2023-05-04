@@ -1,4 +1,4 @@
-<h1>Job Seeker</h1>
+<h1>Food Lover</h1>
 <hr>
 <p>This project will help us to learn/clear Firebase, Auth Provider, Private Route</p> 
 

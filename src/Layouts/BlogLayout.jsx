@@ -12,7 +12,7 @@ const BlogLayout = () => {
             <div>
                 <Outlet></Outlet>
             </div>
-            <div>
+            <div className='container mx-auto px-[60px]'>
                 <Foot></Foot>
             </div>
         </div>

@@ -10,16 +10,19 @@ import RegisterLayout from "../Layouts/RegisterLayout";
 import PrivateRoute from "../Pages/PrivateRoute/PrivateRoute";
 import BlogLayout from "../Layouts/BlogLayout";
 import Blog from "../Pages/Blog/Blog";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
         element: <Home></Home>
       },
+
     ]
   },
   {

@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import Chef from './Chef';
+import FoodCard from './FoodCard';
 import { Button, Spinner } from 'flowbite-react';
 
-const BestChef = () => {
+const DeliciousFood = () => {
     const [loading, setLoading] = useState(true)
-    const [chefs, setChefs] = useState([])
+    const [foods, setFoods] = useState([])
     useEffect(() => {
-        fetch('https://food-lover-xi.vercel.app/chefs')
+        fetch('https://food-lover-xi.vercel.app/food')
             .then(res => res.json())
-            .then(data => setChefs(data))
+            .then(data => setFoods(data))
             setLoading(false)
     }, [])
+
     if (loading) {
         return <div className='flex justify-center items-center'>
             <Button className=''>
@@ -21,17 +22,18 @@ const BestChef = () => {
             </Button>
         </div>
     }
+
     return (
-        <div className='container mx-auto px-[80px] mt-16 mb-16'>
-            <h3 className='text-[#f59e0b] text-2xl font-bold text-center'>Chef Team</h3>
-            <h1 className='text-5xl font-bold text-center'>Best Chefs for You</h1>
-            <div className='grid grid-cols-3 gap-5 mt-8'>
+        <div>
+            <h3 className='text-[#f59e0b] text-2xl font-bold text-center'>Food for You</h3>
+            <h1 className='text-5xl font-bold text-center'>Delicious Food</h1>
+            <div className='grid grid-cols-4 gap-4 container mx-auto px-[80px] mb-16 mt-10'>
                 {
-                    chefs.map(chef => <Chef key={chef.id} chef={chef} loading={loading}></Chef>)
+                    foods.map(food => <FoodCard key={food.id} food={food} loading={loading}></FoodCard>)
                 }
             </div>
         </div>
     );
 };
 
-export default BestChef;
+export default DeliciousFood;

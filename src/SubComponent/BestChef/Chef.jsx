@@ -1,9 +1,9 @@
-import { Card } from 'flowbite-react';
+import { Button, Card, Spinner } from 'flowbite-react';
 import React, { useState } from 'react';
 import { FaHeart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
-const Chef = ({ chef }) => {
+const Chef = ({ chef , loading}) => {
     const { id, image, experience, likes, name, recipes } = chef;
 
     const [like, setLike] = useState(likes)
@@ -14,7 +14,17 @@ const Chef = ({ chef }) => {
     }
     console.log(chef)
 
-    
+    if (loading) {
+        return <div className='flex justify-center items-center'>
+            <Button className=''>
+                <Spinner aria-label="Spinner button example" />
+                <span className="pl-3">
+                    Loading...
+                </span>
+            </Button>
+        </div>
+    }
+
     return (
         <div className='col-span-1'>
             <div className="max-w-sm">

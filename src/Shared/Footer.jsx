@@ -14,10 +14,7 @@ const Foot = () => {
                                 About
                             </Footer.Link>
                             <Footer.Link href="#">
-                                Careers
-                            </Footer.Link>
-                            <Footer.Link href="#">
-                                Brand Center
+                                Home
                             </Footer.Link>
                             <Footer.Link href="#">
                                 Blog
